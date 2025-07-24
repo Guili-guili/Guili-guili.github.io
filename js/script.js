@@ -45,6 +45,9 @@ placesRef.on("value", (snapshot) => {
     const place = data[key];
     tornCount += place.tearings || 0;
 
+    // Update badge in header
+    const totalTornCounts = document.getElementById("torn-count");
+    if (totalTornCounts) totalTornCounts.textContent = `Affiches arrachées: ${tornCount}`;
 
     // Determine display label based on status
     let label;
@@ -94,9 +97,5 @@ function incrementTearings(key) {
     return (current || 0) + 1;
   });
 }
-
-// Update badge in header
-const totalTornCounts = document.getElementById("torn-count");
-if (totalTornCounts) totalTornCounts.textContent = `Affiches arrachées: ${tornCount}`;
 
 });
