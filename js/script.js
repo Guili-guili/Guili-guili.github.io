@@ -45,10 +45,6 @@ placesRef.on("value", (snapshot) => {
     const place = data[key];
     tornCount += place.tearings || 0;
 
-    // Update badge in header
-    const totalTornCounts = document.getElementById("torn-count");
-    if (totalTornCounts) totalTornCounts.textContent = `Affiches arrachées: ${tornCount}`;
-
     // Determine display label based on status
     let label;
     switch (place.status) {
@@ -81,6 +77,11 @@ placesRef.on("value", (snapshot) => {
 
     marker.bindPopup(popup);
   }
+
+  // Update badge in header
+    const totalTornCounts = document.getElementById("torn-count");
+    if (totalTornCounts) totalTornCounts.textContent = `Affiches arrachées: ${tornCount}`;
+  
 });
 
 // Update place status in Firebase
