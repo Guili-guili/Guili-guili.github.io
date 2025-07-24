@@ -1,12 +1,12 @@
 // firebase-config.js
 const firebaseConfig = {
-  apiKey: "TA_COLLE_ICI",
-  authDomain: "TON_PROJET.firebaseapp.com",
-  databaseURL: "https://TON_PROJET.firebaseio.com",
-  projectId: "TON_PROJET",
-  storageBucket: "TON_PROJET.appspot.com",
-  messagingSenderId: "xxx",
-  appId: "xxx"
+  apiKey: "AIzaSyDI16GivuUqDgx92wfhn_HNhMLOD1New7M",
+  authDomain: "carte-des-panos.firebaseapp.com",
+  databaseURL: "https://carte-des-panos-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "carte-des-panos",
+  storageBucket: "carte-des-panos.firebasestorage.app",
+  messagingSenderId: "239851211013",
+  appId: "1:239851211013:web:30423f3d383b3c54f78f6c"
 };
 
 // Initialiser Firebase
@@ -14,3 +14,5 @@ firebase.initializeApp(firebaseConfig);
 
 // Accès à la base de données
 const db = firebase.database();
+
+
