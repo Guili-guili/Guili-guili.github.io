@@ -42,7 +42,7 @@ placesRef.on("value", (snapshot) => {
       Statut : <span id="status-${key}">${label}</span><br><br>
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
-      <button onclick="setStatus('${key}', 'unknown')">❓ Inconnu</button>
+      <button onclick="setStatus('${key}', 'unknown')">❓ INCONNU</button>
     `;
 
     marker.bindPopup(popup);
