@@ -1,4 +1,4 @@
-const map = L.map('map').setView([48.8566, 2.3522], 13); // Paris
+const map = L.map('map').setView([44.84209223220714, -0.5790196426522859], 13); // Bordeaux
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
