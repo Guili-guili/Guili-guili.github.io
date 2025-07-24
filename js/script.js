@@ -73,6 +73,7 @@ placesRef.on("value", (snapshot) => {
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
       Arrachages : <span id="tearings-${key}">${place.tearings || 0}</span><br>
       <button onclick="incrementTearings('${key}')"> J’ai arraché une affiche ☭ </button>
+      <button onclick="decrementTearings('${key}')" style="margin-left: 5px; font-size: 0.85em;"> ↩️ En fait non ... </button>
     `;
 
     marker.bindPopup(popup);
@@ -97,5 +98,14 @@ function incrementTearings(key) {
   ref.transaction(current => {
     return (current || 0) + 1;
   });
+
+  function decrementTearings(key) {
+    const ref = db.ref(`places/${key}/tearings`);
+
+    ref.transaction(current => {
+    if (!current || current <= 0) return 0;
+      return current - 1;
+  });
+}
 }
 
