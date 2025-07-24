@@ -38,8 +38,12 @@ placesRef.on("value", (snapshot) => {
     if (layer instanceof L.Marker) map.removeLayer(layer);
   });
 
+  // Tearing count
+  let tornCount=0;
+
   for (let key in data) {
     const place = data[key];
+    if (place.status === "open") visitedCount++;
 
     // Determine display label based on status
     let label;
@@ -78,3 +82,8 @@ function setStatus(key, newStatus) {
   const ref = db.ref(`places/${key}`);
   ref.update({ status: newStatus });
 }
+
+// Update badge in header
+  const badge = document.getElementById("visited-count");
+  if (badge) badge.textContent = `Visités: ${visitedCount}`;
+});
