@@ -72,7 +72,7 @@ placesRef.on("value", (snapshot) => {
       <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
       Arrachages : <span id="tearings-${key}">${place.tearings || 0}</span><br>
-      <button onclick="incrementTearings('${key}')">👣 J’ai arraché une affiche</button>
+      <button onclick="incrementTearings('${key}')"> J’ai arraché une affiche ☭ </button>
     `;
 
     marker.bindPopup(popup);
