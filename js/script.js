@@ -67,6 +67,7 @@ placesRef.on("value", (snapshot) => {
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
+      <button onclick="incrementPhotoCount()">📷 J’ai pris une photo</button>
     `;
 
     marker.bindPopup(popup);
