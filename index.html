@@ -9,7 +9,12 @@
 </head>
 <body>
   <h1>📍 Carte des lieux</h1>
-  <div id="map"></div>
+  <div id="map">
+    <div class="place" id="place1">
+      <h2>Tour Eiffel</h2>
+      <p>Statut : <span id="status-place1">...</span></p>
+      <button onclick="toggleOpenStatus('place1')">Changer statut</button>
+    </div>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
