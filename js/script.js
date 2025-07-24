@@ -11,6 +11,28 @@ const placesRef = db.ref("places");
 placesRef.on("value", (snapshot) => {
   const data = snapshot.val();
 
+// Markers definition
+  const statusIcons = {
+  open: L.icon({
+    iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/green-dot.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  }),
+  closed: L.icon({
+    iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  }),
+  unknown: L.icon({
+    iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png',
+    iconSize: [32, 32],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -32],
+  }),
+};
+
   // Clear existing markers
   map.eachLayer((layer) => {
     if (layer instanceof L.Marker) map.removeLayer(layer);
@@ -34,7 +56,8 @@ placesRef.on("value", (snapshot) => {
     }
 
     // Add marker to map
-    const marker = L.marker([place.lat, place.lng]).addTo(map);
+    const icon = statusIcons[place.status] || statusIcons.unknown;
+    const marker = L.marker([place.lat, place.lng], { icon }).addTo(map);
 
     // Create popup with 3 status buttons
     //❓
