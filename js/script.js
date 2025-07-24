@@ -70,8 +70,8 @@ placesRef.on("value", (snapshot) => {
       Statut : <span id="status-${key}">${label}</span><br>
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
-      <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button><br>
-      Arrachages : <span id="tearings-${key}">${place.tearings || 0}</span>
+      <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button><br><br>
+      Arrachages : <span id="tearings-${key}">${place.tearings || 0}</span><br>
       <button onclick="incrementTearings('${key}')"> J’ai arraché une affiche ☭ </button>
       <button onclick="decrementTearings('${key}')" style="margin-left: 5px; font-size: 0.85em;"> ↩️ En fait non ... </button>
     `;
