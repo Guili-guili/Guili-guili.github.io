@@ -18,7 +18,7 @@ placesRef.on("value", (snapshot) => {
     const place = data[key];
     const marker = L.marker([place.lat, place.lng]).addTo(map);
 
-    const status = place.open ? '🟢 OUVERT' : '🔴 FERMÉ';
+    const status = place.open ? '🟢 OK' : '🔴 CONTAMINÉ';
 
     const popup = `
       <b>${place.name}</b><br>
