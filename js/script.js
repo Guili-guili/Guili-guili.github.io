@@ -30,7 +30,7 @@ placesRef.on("value", (snapshot) => {
         break;
       case 'unknown':
       default:
-        label = '🟡 INCONNU';
+        label = '❓ INCONNU';
     }
 
     // Add marker to map
@@ -40,8 +40,8 @@ placesRef.on("value", (snapshot) => {
     const popup = `
       <b>${place.name}</b><br>
       Statut : <span id="status-${key}">${label}</span><br><br>
-      <button onclick="setStatus('${key}', 'open')">✅ Ouvert</button>
-      <button onclick="setStatus('${key}', 'closed')">❌ Fermé</button>
+      <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
+      <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
       <button onclick="setStatus('${key}', 'unknown')">❓ Inconnu</button>
     `;
 
