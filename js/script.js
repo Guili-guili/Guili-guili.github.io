@@ -64,7 +64,7 @@ placesRef.on("value", (snapshot) => {
 
     photoCountRef.on("value", (snapshot) => {
       const count = snapshot.val() || 0;
-      document.getElementById("photo-count").textContent = `📸 Photos prises : ${count}`;
+      document.getElementById("photo-count").textContent = `Affiches arrachées : ${count}`;
     });
     
     function incrementPhotoCount() {
