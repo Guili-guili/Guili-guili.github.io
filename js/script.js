@@ -98,6 +98,7 @@ function incrementTearings(key) {
   ref.transaction(current => {
     return (current || 0) + 1;
   });
+}
 
   function decrementTearings(key) {
     const ref = db.ref(`places/${key}/tearings`);
@@ -106,6 +107,5 @@ function incrementTearings(key) {
     if (!current || current <= 0) return 0;
       return current - 1;
   });
-}
 }
 
