@@ -3,6 +3,7 @@ body {
   font-family: impact;
   text-align: center;
   background-color: #c52c2c;
+  letter-spacing: 2px;
 }
 
 #map {
@@ -17,7 +18,7 @@ h1 {
 }
 
 .map-container {
-  max-width: 90%;         /* or a fixed size like 1000px */
+  max-width: 80%;         /* or a fixed size like 1000px */
   margin: 0 auto;         /* center it horizontally */
   border: 3px solid #333; /* border color and width */
   border-radius: 10px;    /* optional: rounded corners */
