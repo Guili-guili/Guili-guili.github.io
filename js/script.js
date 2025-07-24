@@ -59,6 +59,21 @@ placesRef.on("value", (snapshot) => {
     const icon = statusIcons[place.status] || statusIcons.unknown;
     const marker = L.marker([place.lat, place.lng], { icon }).addTo(map);
 
+    // Tearing counter
+    const photoCountRef = db.ref("totalPhotos");
+
+    photoCountRef.on("value", (snapshot) => {
+      const count = snapshot.val() || 0;
+      document.getElementById("photo-count").textContent = `📸 Photos prises : ${count}`;
+    });
+    
+    function incrementPhotoCount() {
+      const ref = db.ref("totalPhotos");
+
+      ref.transaction(current => {
+        return (current || 0) + 1;
+      });
+    }
     // Create popup with 3 status buttons
     //❓
     const popup = `
