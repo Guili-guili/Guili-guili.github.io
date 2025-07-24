@@ -43,7 +43,7 @@ placesRef.on("value", (snapshot) => {
 
   for (let key in data) {
     const place = data[key];
-    if (place.status === "open") visitedCount++;
+    if (place.status === "open") tornCount++;
 
     // Determine display label based on status
     let label;
@@ -84,6 +84,6 @@ function setStatus(key, newStatus) {
 }
 
 // Update badge in header
-  const badge = document.getElementById("visited-count");
-  if (badge) badge.textContent = `Visités: ${visitedCount}`;
+  const badge = document.getElementById("torn-count");
+  if (badge) badge.textContent = `Affiches arrachées: ${tornCount}`;
 });
