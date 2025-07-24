@@ -30,19 +30,20 @@ placesRef.on("value", (snapshot) => {
         break;
       case 'unknown':
       default:
-        label = '❓ INCONNU';
+        label = '🟡 INCONNU';
     }
 
     // Add marker to map
     const marker = L.marker([place.lat, place.lng]).addTo(map);
 
     // Create popup with 3 status buttons
+    //❓
     const popup = `
       <b>${place.name}</b><br>
       Statut : <span id="status-${key}">${label}</span><br><br>
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
-      <button onclick="setStatus('${key}', 'unknown')">❓ INCONNU</button>
+      <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
     `;
 
     marker.bindPopup(popup);
