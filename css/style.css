@@ -2,9 +2,25 @@ body {
   margin: 0;
   font-family: sans-serif;
   text-align: center;
+  background-color: #c52c2c;
 }
 
 #map {
   height: 90vh;
   width: 100%;
+}
+
+h1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem; /* Add more space below title */
+  font-size: 2rem;
+}
+
+.map-container {
+  max-width: 90%;         /* or a fixed size like 1000px */
+  margin: 0 auto;         /* center it horizontally */
+  border: 3px solid #333; /* border color and width */
+  border-radius: 10px;    /* optional: rounded corners */
+  overflow: hidden;       /* cuts overflowing map parts */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* optional shadow */
 }
