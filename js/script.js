@@ -33,17 +33,17 @@ placesRef.on("value", (snapshot) => {
   }),
 };
 
-  // Clear existing markers
+  // Supprime les anciens marqueurs
   map.eachLayer((layer) => {
     if (layer instanceof L.Marker) map.removeLayer(layer);
   });
 
-  // Tearing count
+  // Compteur d'arrachage
   let tornCount=0;
 
   for (let key in data) {
     const place = data[key];
-    totalTearings += place.tearings || 0;
+    tornCount += place.tearings || 0;
 
 
     // Determine display label based on status
@@ -80,9 +80,6 @@ placesRef.on("value", (snapshot) => {
   }
 });
 
-const totalTearingsEl = document.getElementById("total-tearings");
-if (totalTearingsEl) totalTearingsEl.textContent = `Affiches arrachées: ${totalTearings}`;
-
 // Update place status in Firebase
 function setStatus(key, newStatus) {
   const ref = db.ref(`places/${key}`);
@@ -99,6 +96,7 @@ function incrementTearings(key) {
 }
 
 // Update badge in header
-  const badge = document.getElementById("torn-count");
-  if (badge) badge.textContent = `Affiches arrachées: ${tornCount}`;
+const totalTornCounts = document.getElementById("torn-count");
+if (totalTornCounts) totalTornCounts.textContent = `Affiches arrachées: ${tornCount}`;
+
 });
