@@ -43,7 +43,8 @@ placesRef.on("value", (snapshot) => {
 
   for (let key in data) {
     const place = data[key];
-    if (place.status === "open") tornCount++;
+    totalTearings += place.tearings || 0;
+
 
     // Determine display label based on status
     let label;
@@ -71,16 +72,30 @@ placesRef.on("value", (snapshot) => {
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
+      Arrachages : <span id="tearings-${key}">${place.tearings || 0}</span><br>
+      <button onclick="incrementTearings('${key}')">👣 J’ai arraché une affiche</button>
     `;
 
     marker.bindPopup(popup);
   }
 });
 
+const totalTearingsEl = document.getElementById("total-tearings");
+if (totalTearingsEl) totalTearingsEl.textContent = `Affiches arrachées: ${totalTearings}`;
+
 // Update place status in Firebase
 function setStatus(key, newStatus) {
   const ref = db.ref(`places/${key}`);
   ref.update({ status: newStatus });
+}
+
+//Tearings increment
+function incrementTearings(key) {
+  const ref = db.ref(`places/${key}/tearings`);
+
+  ref.transaction(current => {
+    return (current || 0) + 1;
+  });
 }
 
 // Update badge in header
