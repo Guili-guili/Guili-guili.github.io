@@ -59,21 +59,6 @@ placesRef.on("value", (snapshot) => {
     const icon = statusIcons[place.status] || statusIcons.unknown;
     const marker = L.marker([place.lat, place.lng], { icon }).addTo(map);
 
-    // Tearing counter
-    const photoCountRef = db.ref("totalPhotos");
-
-    photoCountRef.on("value", (snapshot) => {
-      const count = snapshot.val() || 0;
-      document.getElementById("photo-count").textContent = `Affiches arrachées : ${count}`;
-    });
-    
-    function incrementPhotoCount() {
-      const ref = db.ref("totalPhotos");
-
-      ref.transaction(current => {
-        return (current || 0) + 1;
-      });
-    }
     // Create popup with 3 status buttons
     //❓
     const popup = `
@@ -82,7 +67,6 @@ placesRef.on("value", (snapshot) => {
       <button onclick="setStatus('${key}', 'open')">🟢 OK</button>
       <button onclick="setStatus('${key}', 'unknown')">🟡 INCONNU</button>
       <button onclick="setStatus('${key}', 'closed')">🔴 CONTAMINÉ</button>
-      <button onclick="incrementPhotoCount()">J’ai arraché une affiche</button>
     `;
 
     marker.bindPopup(popup);
